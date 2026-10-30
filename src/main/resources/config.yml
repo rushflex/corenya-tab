@@ -1,0 +1,78 @@
+# ============================================================
+#  CorenyaTab 1.0.0
+#  Yapimci: rushflex
+#  Spigot / Paper / Folia 1.8 - 1.21.11
+#
+#  Bu dosya /corenyatab reload ile yeniden yuklenir.
+# ============================================================
+
+# Tablist acik/kapali.
+enabled: true
+
+# Sunucu oneki (markasi). Tablist basliginda gorunur.
+# Sadece bu satiri degistirerek oneki degistirebilirsin.
+prefix: "&b&lCorenyaVanilla"
+
+# Kac tick'te bir guncellensin. 20 tick = 1 saniye.
+update-ticks: 20
+
+# Istatistikler kac dakikada bir diske yazilsin. 0 = sadece cikista.
+save-minutes: 5
+
+display:
+  date-format: "dd/MM/yyyy"
+  time-format: "HH:mm"
+  # Alt satirda gorunen konum.
+  location: "ISTANBUL"
+  website: "corenyavanilla.com"
+  money-symbol: "$"
+  compact-numbers: true
+  # Oy sayisi sadece rakamsa "/50" eklenir. 0 = kapali.
+  votes-max: 50
+
+# PlaceholderAPI placeholder'lari. Bos birakilirsa yerlesik deger kullanilir.
+# Ornek: money: "%vault_eco_balance_formatted%"
+placeholders:
+  money: ""
+  elo: ""
+  gems: ""
+  votes: ""
+  team: ""
+  kills: ""
+  deaths: ""
+
+# PlaceholderAPI yoksa veya deger bulunamazsa kullanilacak degerler.
+fallback:
+  money: "$0"
+  elo: "0"
+  gems: "0"
+  votes: "0/50"
+  team: "None"
+
+# Tablist ust bolumu (oyuncu listesinin ustunde).
+# {prefix} {player} {displayname} {world} {ping} {online} {max}
+# {date} {time} {uptime} {location} {website} {money} {elo}
+# {gems} {votes} {team} {kills} {deaths} {playtime}
+# {papi:placeholder_adi} seklinde PlaceholderAPI kullanilabilir.
+header:
+  - "&8&m                                        &r"
+  - "&b&l{prefix} &8• &7Folia &8• &f1.21.11"
+  - "&e★ &d✦ &b◆ &6❖"
+  - "&f&l{player}"
+  - "&7{date} &8• &7UP &f{uptime}"
+  - "&8&m                                        &r"
+
+# Tablist alt bolumu (oyuncu listesinin altinda).
+footer:
+  - "&8&m                                        &r"
+  - "&7PARA: &a{money}"
+  - "&7ELO: &f{elo}"
+  - "&7ÖLÜM: &c{deaths}"
+  - "&7ÖLDÜRME: &a{kills}"
+  - "&7GEMS: &b{gems}"
+  - "&7OYNAMA: &f{playtime}"
+  - "&7TAKIM: &f{team}"
+  - "&7VOTE: &f{votes}"
+  - "&8&m                                        &r"
+  - "&b{time} &8• &b{location}"
+  - "&7&o{website}"

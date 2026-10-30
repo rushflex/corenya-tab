@@ -1,0 +1,21 @@
+name: CorenyaTab
+version: '${version}'
+main: com.corenya.tab.CorenyaTab
+author: rushflex
+description: Tum surumlerde calisan, Folia destekli CorenyaVanilla tablist tasarimi.
+website: https://corenyavanilla.com
+folia-supported: true
+
+commands:
+  corenyatab:
+    description: CorenyaTab ana komutu
+    usage: /corenyatab <reload|toggle|preview|info>
+    aliases: [ctab]
+
+permissions:
+  corenyatab.admin:
+    description: Tablist ayarlarini yonetir
+    default: op
+  corenyatab.use:
+    description: Tablist onizleme ve bilgi komutunu kullanir
+    default: true

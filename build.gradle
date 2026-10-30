@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.corenya'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'spigotmc'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+}
+
+dependencies {
+    // The 1.8.8 API is the lowest common denominator. Only methods that still
+    // exist on Folia/Paper 1.21.11 are used, so one jar covers 1.8 -> 1.21.11.
+    // Transitives are disabled because the old BungeeCord chat snapshot is no
+    // longer published; nothing in this plugin touches those classes.
+    compileOnly('org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT') {
+        transitive = false
+    }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release.set(8)
+}
+
+tasks.named('processResources') {
+    filteringCharset = 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand(version: project.version)
+    }
+}
+
+def pluginVersion = project.version.toString()
+
+tasks.named('jar') {
+    archiveBaseName.set('CorenyaTab')
+    archiveVersion.set(pluginVersion)
+}
